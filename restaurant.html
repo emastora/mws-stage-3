@@ -44,12 +44,33 @@
         <p id="restaurant-address"></p>
         <section id="restaurant-container">
             <img id="restaurant-img" alt="restaurant image">
+            <div>
+                <button id="is_fav" type="button" aria-pressed="false" aria-label="Mark as favourite" onclick="favoriteToggle()">Mark as favourite</button>
+            </div>
         </section>
         <section class="restaurant-table">
             <table id="restaurant-hours"></table>
         </section>
         <!-- end restaurant -->
         <!-- Beginning reviews -->
+        <section id="post-review">
+            <h3>Write a review</h3>
+            <form id="post-review-form">
+                <input type="hidden" name="restaurant_id" id="restaurant_id" value="" />
+
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="rating">Rating</label>
+                <input type="number" id="rating" name="rating" min="0" max="5" required>
+
+                <label for="comments">Comments</label>
+                <textarea id="comments" name="comments" rows="5" required></textarea>
+
+                <button type="submit" class="post-form-button">Send</button>
+            </form>
+        </section>
+
         <section id="reviews-container">
             <ul id="reviews-list"></ul>
         </section>
@@ -65,6 +86,7 @@
 
     <!-- Beginning scripts -->
     <script charset="utf-8" src="buildTool/js/app.js"></script>
+    <!-- <script charset="utf-8" src="buildTool/js/idb.js"></script> -->
     <script charset="utf-8" src="buildTool/js/dbhelper.js"></script>
     <script charset="utf-8" src="buildTool/js/restaurant_info.js"></script>
     <script charset="utf-8" src="buildTool/js/idb.js"></script>
