@@ -35,7 +35,7 @@
     <main id="maincontent">
         <!-- Beginning map -->
         <section id="map-container">
-            <div id="map" aria-label="Maps" role="application" aria-hidden="true"></div>
+            <div id="map" aria-label="Maps" role="application"></div>
         </section>
         <!-- End map -->
         <!-- Beginning restaurant -->
@@ -45,11 +45,13 @@
         <section id="restaurant-container">
             <img id="restaurant-img" alt="restaurant image">
             <div>
-                <button id="is_fav" type="button" aria-pressed="false" aria-label="Mark as favourite" onclick="favoriteToggle()">Mark as favourite</button>
+                <button id="is_fav" type="button" aria-pressed="false" aria-label="Mark as favourite" onclick="favoriteToggle()">Like!</button>
             </div>
         </section>
         <section class="restaurant-table">
-            <table id="restaurant-hours"></table>
+            <table id="restaurant-hours">
+                <caption>Restaurant hours</caption>
+            </table>
         </section>
         <!-- end restaurant -->
         <!-- Beginning reviews -->
@@ -86,10 +88,10 @@
 
     <!-- Beginning scripts -->
     <script charset="utf-8" src="buildTool/js/app.js"></script>
-    <!-- <script charset="utf-8" src="buildTool/js/idb.js"></script> -->
+    <script charset="utf-8" src="buildTool/js/idb.js"></script>
     <script charset="utf-8" src="buildTool/js/dbhelper.js"></script>
     <script charset="utf-8" src="buildTool/js/restaurant_info.js"></script>
-    <script charset="utf-8" src="buildTool/js/idb.js"></script>
+    <!-- <script charset="utf-8" src="buildTool/js/idb.js"></script> -->
     <!-- Database helpers -->
     <!-- <script type="text/javascript" src="js/dbhelper.js"></script> -->
     <!-- Main javascript file -->

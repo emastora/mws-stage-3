@@ -403,6 +403,13 @@ nav h1 a {
     padding-bottom: 1pt;
 }
 
+#cuisines-select,
+#neighborhoods-select {
+    background-color: #f58500;
+    color: white;
+    text-transform: uppercase
+}
+
 #reviews-list {
     margin: 0;
     padding: 0 0 10px 0;

@@ -6,7 +6,7 @@ var map;
  */
 window.initMap = () => {
     fetchRestaurantFromURL((error, restaurant) => {
-        if (error) { // Got an error!
+        if (error) {
             console.error(error);
         } else {
             self.map = new google.maps.Map(document.getElementById('map'), {
@@ -215,14 +215,14 @@ const favoriteToggle = () => {
 
     let buttonState = favButton.getAttribute('aria-pressed');
     let pressed = 'false';
-    let labelText = 'Mark as favourite';
+    let labelText = 'Like!';
 
     if (buttonState === 'true') {
         pressed = 'false';
-        labelText = 'Mark as favourite';
+        labelText = 'Like!';
     } else {
         pressed = 'true';
-        labelText = 'Remove favourite';
+        labelText = 'Remove Like!';
     }
 
     favButton.setAttribute('aria-pressed', pressed);
@@ -243,11 +243,11 @@ const fillFavouritesHTML = (is_favorite) => {
 
     if (is_favorite === 'true' || is_favorite === true) {
         pressed = 'true';
-        labelText = 'Remove favourite';
+        labelText = 'Remove Like!';
         favButton.classList.add('is_favorite');
     } else {
         pressed = 'false';
-        labelText = 'Mark as favourite';
+        labelText = 'Like!';
         favButton.classList.remove('is_favorite');
     }
 
