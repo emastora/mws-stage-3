@@ -12,11 +12,9 @@ function registerSW() {
     }
 }
 
-window.addEventListener('load', function() {
-    registerSW();
-});
-
-
+// window.addEventListener('load', function() {
+//     registerSW();
+// });
 
 const connectionStatus = (connected) => {
     if (connected) {

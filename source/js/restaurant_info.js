@@ -5,7 +5,7 @@ var map;
  * Initialize Google map, called from HTML.
  */
 window.initMap = () => {
-    fetchRestaurantFromURL((error, restaurant) => {
+    fetchRestaurantFromURL2((error, restaurant) => {
         if (error) {
             console.error(error);
         } else {
@@ -14,8 +14,10 @@ window.initMap = () => {
                 center: restaurant.latlng,
                 scrollwheel: false
             });
-            fillBreadcrumb();
-            DBHelper.mapMarkerForRestaurant(self.restaurant, self.map);
+            console.log(restaurant.latlng),
+                console.log(restaurant.id)
+                // fillBreadcrumb();
+                // DBHelper.mapMarkerForRestaurant(self.restaurant, self.map);
         }
     });
 }
@@ -53,6 +55,31 @@ const fetchRestaurantFromURL = () => {
     });
 }
 
+/**
+ * Get current restaurant from page URL.
+ */
+const fetchRestaurantFromURL2 = () => {
+    return new Promise((resolve, reject) => {
+        if (self.restaurant) { // restaurant already fetched!
+            return resolve(self.restaurant)
+        }
+        const id2 = getParameterByName('id');
+        console.log(id2);
+        // return id;
+        if (!id2) { // no id found in URL
+            const error = 'No restaurant id in URL'
+            return reject(error);
+        } else {
+            DBHelper.fetchRestaurantById(id2, (error, restaurant) => {
+                self.restaurant = restaurant;
+                if (!restaurant) {
+                    return reject(error);
+                }
+            });
+        }
+    });
+}
+
 
 /**
  * Create restaurant HTML and add it to the webpage
@@ -77,7 +104,7 @@ const fillRestaurantHTML = (restaurant = self.restaurant) => {
         fillRestaurantHoursHTML();
     }
     // fill reviews
-    fillReviewsHTML();
+    // fillReviewsHTML();
 }
 
 /**
@@ -144,7 +171,7 @@ const createReviewHTML = (review) => {
     li.appendChild(name);
 
     const date = document.createElement('p');
-    date.innerHTML = review.date;
+    date.innerHTML = new Date(review.updatedAt).toLocaleDateString();
     li.appendChild(date);
 
     const rating = document.createElement('p');
@@ -260,7 +287,6 @@ const fillFavouritesHTML = (is_favorite) => {
  * Init
  */
 (() => {
-    console.log('rentaurant Init')
     fetchRestaurantFromURL()
         .then((restaurant) => {
             fillBreadcrumb();
