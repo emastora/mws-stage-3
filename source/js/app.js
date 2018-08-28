@@ -32,7 +32,7 @@ const connectionStatus = (connected) => {
         let offlineAlert = document.createElement('p');
         offlineAlert.id = 'offlinealert';
         offlineAlert.setAttribute('role', 'alert');
-        let offlineAlertText = document.createTextNode("You are offline!.");
+        let offlineAlertText = document.createTextNode("Offline!");
         offlineAlert.appendChild(offlineAlertText);
         document.body.appendChild(offlineAlert);
     }

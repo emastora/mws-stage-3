@@ -45,16 +45,13 @@ class DBHelper {
         const dbPromise = idb.open('restaurantsDB', 3, upgradeDb => {
             switch (upgradeDb.oldVersion) {
                 case 0:
-                    console.log('Creating IDB');
                     const store = upgradeDb.createObjectStore('restaurants', { keyPath: 'id' });
                     store.createIndex('by-id', 'id');
                 case 1:
-                    console.log("Upgrading to DB v2");
                     const reviews = upgradeDb.createObjectStore('reviews', { keyPath: 'id' });
                     reviews.createIndex('restaurant', 'restaurant_id');
                     const offlineReviews = upgradeDb.createObjectStore('offline_reviews', { keyPath: 'updatedAt' });
                 case 2:
-                    console.log("Upgrading to DB v3");
                     const offlineFavourites = upgradeDb.createObjectStore('offline_favourites', { keyPath: 'restaurant_id' });
                     offlineFavourites.createIndex('by-restaurant', 'restaurant_id');
             }
@@ -231,7 +228,7 @@ class DBHelper {
             if (error) {
                 callback(error, null);
             } else {
-                console.log('dbhelper fetchReviews !error()')
+                console.log('Fetch Reviews Success')
             }
         });
     }
@@ -428,7 +425,7 @@ class DBHelper {
                         cursor.delete();
                         cursor.continue();
                     }).then(() => {
-                        console.log('Item deleted');
+                        console.log('Offline review deleted');
                     }).then(() => {
                         return tx.complete;
                     })
@@ -479,7 +476,7 @@ class DBHelper {
             store.put(data);
             return tx.complete;
         }).then(() => {
-            console.log('Favourite saved offline')
+            console.log('Like offline')
         });
     }
 
@@ -538,7 +535,7 @@ class DBHelper {
                         cursor.delete();
                         cursor.continue();
                     }).then(() => {
-                        console.log('Favourite deleted');
+                        console.log('Like removed');
                     }).then(() => {
                         return tx.complete;
                     })

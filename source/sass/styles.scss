@@ -1,8 +1,4 @@
 @charset "utf-8";
-@import "./responsive";
-
-/* SCSS Document */
-
 body,
 td,
 th,
@@ -208,6 +204,9 @@ nav h1 a {
     text-align: center;
     align-content: center;
     max-width: 100%;
+    @media screen and (min-width: 850px) {
+        margin-left: 30px;
+    }
 }
 
 #restaurants-list li {
@@ -224,6 +223,12 @@ nav h1 a {
     /* padding: 0px 0px 0px; */
     /* margin-left: auto; */
     /* margin-right: auto; */
+    @media screen and (min-width: 850px) {
+        width: calc((90% - 15px) / 2);
+    }
+    @media screen and (min-width: 1650px) {
+        width: calc((70% - 15px) / 3);
+    }
 }
 
 #restaurants-list .restaurant-img {
@@ -317,6 +322,9 @@ nav h1 a {
     max-width: 100%;
     /* margin: 0 5px; */
     padding: 10px 5px 10px 0;
+    @media screen and (min-width: 800px) {
+        padding: 10px 5px 10px 15px;
+    }
 }
 
 #restaurant-address {
@@ -354,10 +362,19 @@ nav h1 a {
 /* } */
 
 #restaurant-container {
+    @media screen and (min-width: 800px) {
+        width: 49%;
+        vertical-align: top;
+        display: inline-block;
+    }
     div {
         position: relative;
     }
     #is_fav {
+        @media screen and (min-width: 880px) {
+            vertical-align: middle;
+            display: inline-block;
+        }
         border: none;
         background: transparent;
         padding: 0 40px 0 0;
@@ -427,6 +444,22 @@ nav h1 a {
     width: 85%;
 }
 
+#comments,
+#name,
+.post-form-button {
+    margin: 0 20px 0 0;
+}
+
+.post-form-button {
+    width: 20%;
+    align-self: center;
+    text-align: center;
+}
+
+#rating {
+    width: 5%;
+}
+
 #reviews-list li p {
     margin: 0 5px;
     font-size: 12pt;
@@ -452,9 +485,24 @@ nav h1 a {
     }
 }
 
+@media screen and (min-width: 800px) {
+    .restaurant-table {
+        width: 49%;
+        order: 1;
+        display: inline-block;
+        vertical-align: middle;
+        margin-top: 80px;
+    }
+    .restaurant-table td,
+    th {
+        height: 10px;
+        font-size: 10pt;
+    }
+}
+
 #offlinealert {
     position: fixed;
-    width: 100%;
+    width: 50%;
     bottom: 0;
     left: 0;
     margin: 0;
@@ -464,6 +512,58 @@ nav h1 a {
     font-weight: bold;
     text-align: center;
     z-index: 9999;
+}
+
+@media screen and (min-width: 1000px) {
+    #restaurant-container {
+        width: 49%;
+        vertical-align: top;
+        display: inline-block;
+    }
+    .restaurant-table {
+        width: 49%;
+        order: 1;
+        display: inline-block;
+        vertical-align: middle;
+        margin-top: 80px;
+    }
+    .restaurant-table td,
+    th {
+        height: 30px;
+        font-size: 14pt;
+    }
+    #restaurant-img {
+        padding: 10px 5px 10px 15px;
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    #restaurant-container {
+        width: 49%;
+        vertical-align: top;
+        display: inline-block;
+    }
+    .restaurant-table {
+        width: 49%;
+        order: 1;
+        display: inline-block;
+        vertical-align: middle;
+        margin-top: 80px;
+    }
+    .restaurant-table td,
+    th {
+        height: 40px;
+        font-size: 16pt;
+    }
+    #restaurant-img {
+        padding: 10px 5px 10px 20px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    h1 {
+        font-size: 9pt;
+    }
 }
 
 

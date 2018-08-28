@@ -284,7 +284,7 @@ const fillFavouritesHTML = (is_favorite) => {
 }
 
 /**
- * Init
+ * Restaurant page full process
  */
 (() => {
     fetchRestaurantFromURL()
@@ -305,6 +305,6 @@ const fillFavouritesHTML = (is_favorite) => {
             })
         })
         .catch((err) => {
-            console.error('Init Error: ', err);
+            console.error('Error during process ', err);
         });
 })();
